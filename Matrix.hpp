@@ -20,9 +20,18 @@ public:
         std::fill(m_data.begin(), m_data.end(), value);
     }
 
-    T& operator()(size_t r, size_t c); //zrobić
-    const T& operator()(size_t r, size_t c) const;//zrobić
-
+    T& operator()(size_t r, size_t c) {
+    if (r >= m_rows || c >= m_columns) {
+        throw std::out_of_range("Matrix index out of range");
+    }
+    return m_data[r * m_columns + c];
+    }
+    const T& operator()(size_t r, size_t c) const {
+    if (r >= m_rows || c >= m_columns) {
+        throw std::out_of_range("Matrix index out of range");
+    }
+    return m_data[r * m_columns + c];
+}
     //gettery, settery
 };
 
