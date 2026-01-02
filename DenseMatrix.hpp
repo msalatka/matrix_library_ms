@@ -5,12 +5,20 @@
 namespace ms {
 
 template <typename T>
-class DenseMatrix : public Matrix {
+class DenseMatrix : public Matrix<T> {
 private:
     size_t m_rows;
     size_t m_columns;
     std::vector<T> m_data;
 public:
+
+    size_t rows() const override {
+        return m_rows;
+    }
+    size_t columns() const override {
+        return m_columns;
+    }
+
     DenseMatrix() : m_rows(0), m_columns(0) {}
     DenseMatrix(size_t rows, size_t columns) : m_rows(rows), m_columns(columns), m_data(rows * columns){
         if (rows == 0 || columns == 0){
@@ -33,7 +41,7 @@ public:
     }
     return m_data[r * m_columns + c];
 }
-friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
+friend std::ostream& operator<<(std::ostream& os, const DenseMatrix<T>& matrix) {
     for (size_t r = 0; r < matrix.m_rows; ++r) {
         for (size_t c = 0; c < matrix.m_columns; ++c) {
             os << matrix(r, c);
@@ -44,7 +52,6 @@ friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
     }
     return os;
 }
-    //gettery, settery
 };
 
 } // namespace ms

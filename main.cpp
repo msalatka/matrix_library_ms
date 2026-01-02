@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Matrix.hpp"   
+#include "DenseMatrix.hpp"   
 int main() {
     try {
-        ms::Matrix<int> m(15, 5, 1);
+        ms::DenseMatrix<int> m(15, 5, 1);
 
         // zapis
         m(0, 0) = 1;
@@ -16,7 +16,7 @@ int main() {
         std::cout <<  m << std::endl;
 
         // test const
-        const ms::Matrix<int>& cm = m;
+        const ms::DenseMatrix<int>& cm = m;
         std::cout << "\nConst access cm(1,2) = " << cm(1, 2) << "\n";
 
         // test wyjątku
