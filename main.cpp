@@ -2,7 +2,7 @@
 #include "Matrix.hpp"   
 int main() {
     try {
-        ms::Matrix<int> m(2, 3, 0);
+        ms::Matrix<int> m(15, 5, 1);
 
         // zapis
         m(0, 0) = 1;
@@ -13,13 +13,7 @@ int main() {
         m(1, 2) = 6;
 
         // odczyt
-        std::cout << "Matrix m:\n";
-        for (size_t r = 0; r < 2; ++r) {
-            for (size_t c = 0; c < 3; ++c) {
-                std::cout << m(r, c) << " ";
-            }
-            std::cout << "\n";
-        }
+        std::cout <<  m << std::endl;
 
         // test const
         const ms::Matrix<int>& cm = m;
@@ -27,7 +21,7 @@ int main() {
 
         // test wyjątku
         std::cout << "\nTrying out-of-range access...\n";
-        std::cout << m(2, 0) << "\n";  // powinien polecieć wyjątek
+        std::cout << m(1, 0) << "\n";  // powinien polecieć wyjątek
     }
     catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << "\n";

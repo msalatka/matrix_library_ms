@@ -32,6 +32,17 @@ public:
     }
     return m_data[r * m_columns + c];
 }
+friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
+    for (size_t r = 0; r < matrix.m_rows; ++r) {
+        for (size_t c = 0; c < matrix.m_columns; ++c) {
+            os << matrix(r, c);
+            if (c + 1 < matrix.m_columns)
+                os << " ";
+        }
+        os << '\n';
+    }
+    return os;
+}
     //gettery, settery
 };
 
