@@ -19,15 +19,14 @@ public:
         return m_columns;
     }
 
-    DenseMatrix() : m_rows(0), m_columns(0) {}
-    DenseMatrix(size_t rows, size_t columns) : m_rows(rows), m_columns(columns), m_data(rows * columns){
+    DenseMatrix() = delete;
+    DenseMatrix(size_t rows, size_t columns, const T& value) :  m_rows(rows), m_columns(columns), m_data(rows * columns, value) {
         if (rows == 0 || columns == 0){
             throw std::invalid_argument("Matrix dimensions must be greater than zero!");
         }
     }
-    DenseMatrix(size_t rows, size_t columns, const T& value) :  m_rows(rows), m_columns(columns), m_data(rows * columns, value) {
-        std::fill(m_data.begin(), m_data.end(), value);
-    }
+    DenseMatrix(size_t rows, size_t columns) : DenseMatrix(rows,columns,T{}) {}
+    
 
     T& operator()(size_t r, size_t c) {
     if (r >= m_rows || c >= m_columns) {
