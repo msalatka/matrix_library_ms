@@ -5,7 +5,7 @@ namespace ms{
 template<typename T>
 class SquareMatrix : public DenseMatrix<T>{
 public:
-    explicit SquareMatrix(size_t num, const T& val) : DenseMatrix(num, num, val) {}
+    explicit SquareMatrix(size_t num, const T& val) : DenseMatrix<T>(num, num, val) {}
 
      size_t size() const { return this->rows(); }
 };

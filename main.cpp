@@ -1,7 +1,9 @@
 #include <iostream>
-#include "DenseMatrix.hpp"   
+#include "DenseMatrix.hpp"
+#include "SquareMatrix.hpp"  
 int main() {
     ms::DenseMatrix<char> m(2,2,'a');
-    std::cout << m << std::endl;
+    ms::SquareMatrix<int> n(10,1);
+    std::cout << n << std::endl;
 
 }
