@@ -1,6 +1,6 @@
 # Kompilator i flagi
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17 -g
+CXXFLAGS = -Wall -Wextra -std=c++20 -g
 
 # Nazwa programu
 TARGET = main

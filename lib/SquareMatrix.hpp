@@ -1,15 +1,26 @@
 #pragma once
-#include "DenseMatrix.hpp"
+#include "Matrix.hpp"
 
 namespace ms {
 
+/**
+ * @class SquareMatrix
+ * @brief Macierz kwadratowa dziedzicząca po Matrix
+ *
+ *
+ * @tparam T Typ elementów macierzy.
+ */
 template<typename T>
-class SquareMatrix : public DenseMatrix<T> {
+class SquareMatrix : public Matrix<T> {
 public:
-    explicit SquareMatrix(size_t size, const T& value = T{})
-        : DenseMatrix<T>(size, size, value) {}
+    /**
+     * @brief Konstruktor tworzący macierz kwadratową wypełnioną wartością.
+     * 
+     * @param size Rozmiar macierzy (liczba wierszy i kolumn)
+     * @param value Wartość początkowa elementów (domyślnie T{})
+     */
+    explicit SquareMatrix(size_t size, const T& value = T{}) : Matrix<T>(size, size, value) {}
 
-    size_t size() const { return this->rows(); }
 };
 
-} // namespace ms
+} 
