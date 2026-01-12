@@ -8,7 +8,7 @@ using ms::IdentityMatrix;
 int main() {
     std::cout << "Matrix Library demo\n\n";
 
-    // 1. Tworzenie macierzy
+    // 1. Tworzenie Matrix<>
     Matrix<double> A(3, 3, 0.0);
     Matrix<double> B(3, 3, 1.0);
 
@@ -20,7 +20,7 @@ int main() {
     std::cout << "Matrix A:\n" << A << "\n";
     std::cout << "Matrix B:\n" << B << "\n";
 
-    // 2. Macierze specjalne
+    // 2. Macierze SquareMatrix<>, IdentityMatrix<>
     SquareMatrix<double> S(4, 9.9);
     IdentityMatrix<double> I(3);
 
