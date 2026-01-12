@@ -9,9 +9,10 @@ namespace ms {
  *
  * Każdy element diagonalny ma wartość 1, pozostałe elementy mają wartość 0
  *
- * @tparam T Typ elementów macierzy
+ * @param T Typ elementów macierzy - musi być arytmetyczny (std::is_arithmetic_v<T>)
  */
-template<typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
+template<typename T>
+requires std::is_arithmetic_v<T>
 class IdentityMatrix : public SquareMatrix<T> {
 public:
     /**
