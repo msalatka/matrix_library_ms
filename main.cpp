@@ -17,17 +17,17 @@ int main() {
     std::cout << "Matrix B:\n" << B << "\n";
 
     // 2. Macierze ms::SquareMatrix<>, ms::IdentityMatrix<>
-    ms::SquareMatrix<double> S(4, 9.9);
-    ms::IdentityMatrix<double> I(3);
-
+    ms::SquareMatrix<double> S(5, 10.0);
     std::cout << "Square matrix S:\n" << S << "\n";
+
+    ms::IdentityMatrix<double> I(3);
     std::cout << "Identity matrix I:\n" << I << "\n";
 
     // 3. Operacje arytmetyczne
     ms::Matrix<double> C = A * 2.5 + I;
-    ms::Matrix<double> D = B - A;
-
     std::cout << "C = A * 2.5 + I:\n" << C << "\n";
+
+    ms::Matrix<double> D = B - A;
     std::cout << "D = B - A:\n" << D << "\n";
 
     // 4. Mnożenie macierzy
@@ -38,6 +38,7 @@ int main() {
     std::cout << "E * F:\n" << G << "\n";
 
     // 5. Obsługa wyjątków
+    std::cout << "Exceptions Test:\n";
     try {
         ms::Matrix<double> invalid(0, 3);
     } catch (const std::exception& e) {
