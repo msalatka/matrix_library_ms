@@ -1,16 +1,12 @@
 #include <iostream>
 #include "lib/Matrix.hpp"
 
-using ms::Matrix;
-using ms::SquareMatrix;
-using ms::IdentityMatrix;
-
 int main() {
     std::cout << "Matrix Library demo\n\n";
 
-    // 1. Tworzenie Matrix<>
-    Matrix<double> A(3, 3, 0.0);
-    Matrix<double> B(3, 3, 1.0);
+    // 1. Tworzenie ms::Matrix<>
+    ms::Matrix<double> A(3, 3, 0.0);
+    ms::Matrix<double> B(3, 3, 1.0);
 
     for (size_t i = 0; i < 3; ++i) {
         A(i, i) = 1.0;
@@ -20,30 +16,30 @@ int main() {
     std::cout << "Matrix A:\n" << A << "\n";
     std::cout << "Matrix B:\n" << B << "\n";
 
-    // 2. Macierze SquareMatrix<>, IdentityMatrix<>
-    SquareMatrix<double> S(4, 9.9);
-    IdentityMatrix<double> I(3);
+    // 2. Macierze ms::SquareMatrix<>, ms::IdentityMatrix<>
+    ms::SquareMatrix<double> S(4, 9.9);
+    ms::IdentityMatrix<double> I(3);
 
     std::cout << "Square matrix S:\n" << S << "\n";
     std::cout << "Identity matrix I:\n" << I << "\n";
 
     // 3. Operacje arytmetyczne
-    Matrix<double> C = A * 2.5 + I;
-    Matrix<double> D = B - A;
+    ms::Matrix<double> C = A * 2.5 + I;
+    ms::Matrix<double> D = B - A;
 
     std::cout << "C = A * 2.5 + I:\n" << C << "\n";
     std::cout << "D = B - A:\n" << D << "\n";
 
     // 4. Mnożenie macierzy
-    Matrix<double> E(2, 3, 1.0);
-    Matrix<double> F(3, 2, 2.0);
+    ms::Matrix<double> E(2, 3, 1.0);
+    ms::Matrix<double> F(3, 2, 2.0);
 
-    Matrix<double> G = E * F;
+    ms::Matrix<double> G = E * F;
     std::cout << "E * F:\n" << G << "\n";
 
     // 5. Obsługa wyjątków
     try {
-        Matrix<double> invalid(0, 3);
+        ms::Matrix<double> invalid(0, 3);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << "\n";
     }
